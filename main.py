@@ -2,6 +2,7 @@ from attribute import Attribute
 from data import data
 from PyQt6.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem
 from decision_expert import DecisionExpert
+from num_mark import NumMark
 
 
 class MainWindow(QMainWindow):
@@ -34,6 +35,14 @@ class MainWindow(QMainWindow):
         mark2 = DecisionExpert(attributes2)
         laptop2_mark = mark2.determine_mark()
         #print(laptop2_mark)
+
+        num1 = NumMark(laptop1_mark)
+        num_mark1 = num1.get_num_mark()
+        #print(num_mark1)
+
+        num2 = NumMark(laptop2_mark)
+        num_mark2 = num2.get_num_mark()
+        #print(num_mark2)
     
     def add_data(self):
         
