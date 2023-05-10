@@ -1,3 +1,4 @@
+from alternative import Alternative
 from attribute import Attribute
 from data import data
 from PyQt6.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem
@@ -9,14 +10,16 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        horizontal_header = ["Laptop1", "Laptop2"]
+
         self.table_widget = QTableWidget(self)
         self.setCentralWidget(self.table_widget)
 
         self.table_widget.setRowCount(2)
         self.table_widget.setColumnCount(2)
 
-        self.table_widget.setHorizontalHeaderLabels(["Laptop1", "Laptop2",])
-        self.table_widget.setVerticalHeaderLabels(["Price", "Tech. Char.",])
+        self.table_widget.setHorizontalHeaderLabels(horizontal_header)
+        self.table_widget.setVerticalHeaderLabels(["Price", "Tech. Char."])
 
         self.add_data()
 
@@ -43,6 +46,12 @@ class MainWindow(QMainWindow):
         num2 = NumMark(laptop2_mark)
         num_mark2 = num2.get_num_mark()
         #print(num_mark2)
+
+        laptops = {horizontal_header[0]: num_mark1, horizontal_header[1]: num_mark2}
+        
+        alternative = Alternative(laptops)
+        best_alternative = alternative.get_best_alternative()
+        #print(best_alternative)
     
     def add_data(self):
         
