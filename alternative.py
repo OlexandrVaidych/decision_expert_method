@@ -2,7 +2,7 @@ class Alternative:
     def __init__(self, laptops):
         self._laptops = laptops
     
-    def get_best_alternative(self):
+    def calc_best_alternative(self):
         max_num_mark = max(self._laptops.values())
 
         for key, value in self._laptops.items():
