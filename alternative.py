@@ -10,4 +10,4 @@ class Alternative:
                 alternative = key
                 break
         
-        return f"The best aleternative is {alternative}" 
+        return f"The best alternative is {alternative}" 

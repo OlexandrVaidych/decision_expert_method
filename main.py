@@ -1,6 +1,6 @@
 from best_alternative import BestAlternative
 from data import data
-from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QLabel
 from table import Table
 
 
@@ -14,9 +14,11 @@ class MainWindow(QMainWindow):
 
         best_alternative = BestAlternative(data)
         optimal_alternative = best_alternative.get_best_alternative()
-        #print(optimal_alternative)
+
+        optimal_alternative_label = QLabel(optimal_alternative)
 
         layout.addWidget(table)
+        layout.addWidget(optimal_alternative_label)
 
         container = QWidget()
         container.setLayout(layout)
